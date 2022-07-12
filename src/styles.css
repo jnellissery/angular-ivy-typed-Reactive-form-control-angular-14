@@ -1,0 +1,33 @@
+/* Add application styles & imports to this file! */
+.main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main div , form {
+  display: flex;
+  width: 250px;
+  justify-content:space-between;
+  padding:10px;
+  
+ }
+ .main div input , .main form input{
+   flex-grow: 1;
+   margin-bottom: 5px;
+   width:100%;
+ }
+ .main div select {
+  flex-grow: 1;
+  margin-bottom: 5px;
+  width:100%
+}
+ .main label, .main p{
+ width:110px
+ }
+ .btvdiv{
+  float: right;
+ }
+ .error{
+   color:red;
+   border-color: red;;
+ }

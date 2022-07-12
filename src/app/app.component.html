@@ -1,0 +1,38 @@
+<app-article></app-article>
+
+<form [formGroup]='fg' (ngSubmit)='post()'>
+  <div class ="main">
+    <div>
+      <label>Titles</label>
+      <select formControlName='titles'>
+      <option>
+        Please select Title
+      </option>
+      <option *ngFor='let title of titles' [selected]=title.default>
+          {{title.name}}
+      </option>
+
+      </select>
+    </div>
+    <div>
+        <label>Title</label>
+        <input type="text" formControlName='title'>
+    </div> 
+    <div>
+    <label>first Name</label>
+    <input type="text" formControlName='firstname'>
+</div> 
+
+<div >
+<label>Last name</label>
+<input [ngClass]='{"error" : fg.get("lastname").touched && fg.get("lastname").hasError("required")}' type="text" formControlName='lastname'>
+</div> 
+<div class='error' *ngIf='fg.get("lastname").touched && fg.get("lastname").hasError("required")'>
+show error
+</div>
+   
+ <div>
+  <button [disabled]='fg.invalid' class='btvdiv'>Submit </button>
+ </div>
+  </div>
+</form>  
