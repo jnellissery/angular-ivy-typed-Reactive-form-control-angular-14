@@ -3,6 +3,7 @@
 <button (click)="getArticleByIdView()">Search Article By Id</button>
 
 <div [ngSwitch]="task">
+<p> <b>{{ message$ | async }}</b> </p>
     <ng-template [ngSwitchCase]="'all'">
         <ul>
             <li *ngFor="let article of articles$ | async">
@@ -12,16 +13,22 @@
     </ng-template>
 
     <ng-template ngSwitchCase="create">
-        <p> <b>{{ message$ | async }}</b> </p>
+       
         <form [formGroup]="articleForm" (ngSubmit)="onFormSubmit()"  class='main'>
-            <p> Enter New Id: <input formControlName="id">
-                <label *ngIf="id?.hasError('required') && !articleForm.pristine" style="color:red">
+            <p> 
+                <span>Enter New Id: </span>
+                <input formControlName="id">
+                <label *ngIf="articleForm.get('id')?.hasError('required') && !articleForm.pristine" style="color:red">
                     Enter article id
                 </label>
             </p>
-            <p> Enter Title: <input formControlName="title"> </p>
-            <p> Enter Category: <input formControlName="category"> </p>
-            <p> <button> Submit </button> </p>
+            <p> 
+                <span>Enter Title: </span>
+                <input formControlName="title"> </p>
+            <p>
+                <span> Enter Category:</span>
+                 <input formControlName="category"> </p>
+            <p> <button [disabled]='articleForm.invalid'> Submit </button> </p>
         </form>
         <ul>
             <li *ngFor="let article of articles$ | async">

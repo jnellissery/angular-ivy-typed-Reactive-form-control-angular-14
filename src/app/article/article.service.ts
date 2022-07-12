@@ -13,7 +13,6 @@ export class ArticleService {
     return this.http.post<Iarticle>(this.url, article);
   }
   getArticleById(id: string): Observable<Iarticle[]> {
-    console.log(id);
     return this.http.get<Iarticle[]>(this.url + '?id=' + id);
   }
 }

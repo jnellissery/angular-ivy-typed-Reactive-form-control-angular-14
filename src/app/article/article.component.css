@@ -1,0 +1,7 @@
+.main span {
+  width: 120px;
+  display: flex;
+}
+.main p {
+  display: flex;
+}

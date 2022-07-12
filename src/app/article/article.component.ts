@@ -24,7 +24,7 @@ articleForm =  this.fb.group({
 });
   constructor(private fb: FormBuilder,private store: Store<ArticleState>) {
     this.articles$ = store.select(getArticles);
-		//this.message$ = store.select(getMessage);
+		this.message$ = store.select(getMessage);
 
    }
    get id() {

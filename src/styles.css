@@ -3,15 +3,13 @@
   display: flex;
   flex-wrap: wrap;
 }
-
-.main div , form {
+.main div {
   display: flex;
   width: 250px;
   justify-content:space-between;
   padding:10px;
-  
  }
- .main div input , .main form input{
+ .main div input {
    flex-grow: 1;
    margin-bottom: 5px;
    width:100%;
@@ -21,7 +19,7 @@
   margin-bottom: 5px;
   width:100%
 }
- .main label, .main p{
+ .main label{
  width:110px
  }
  .btvdiv{

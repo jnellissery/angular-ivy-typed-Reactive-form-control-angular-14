@@ -4,8 +4,8 @@ import { ArticleState } from "./article.state";
 export const getArticleState = createFeatureSelector<ArticleState>('articleState');
 
 export const getArticles = createSelector(
-    getArticleState, 
-    (state: ArticleState) => state.articles 
+  getArticleState, 
+  (state: ArticleState) => state.articles 
 );
 
 export const getMessage = createSelector(
