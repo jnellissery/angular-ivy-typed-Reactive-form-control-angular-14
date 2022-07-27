@@ -1,11 +1,13 @@
 /* Add application styles & imports to this file! */
+@use 'variables';
 .main {
   display: flex;
   flex-wrap: wrap;
 }
 .main div {
+  @include variables.color(lightblue);
   display: flex;
-  width: 250px;
+  width: variables.calculate(25,10)*1px ;
   justify-content: space-between;
   padding: 10px;
 }
@@ -13,6 +15,7 @@
   flex-grow: 1;
   margin-bottom: 5px;
   width: 100%;
+  border-radius: variables.$border-radious;
 }
 .main div select {
   flex-grow: 1;
