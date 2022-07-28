@@ -17,8 +17,8 @@
         <form [formGroup]="articleForm" (ngSubmit)="onFormSubmit()"  class='main'>
             <p> 
                 <span>Enter New Id: </span>
-                <input formControlName="id">
-                <label *ngIf="articleForm.get('id')?.hasError('required') && !articleForm.pristine" style="color:red">
+                <input formControlName="id"><br/>
+                <label *ngIf="articleForm.get('id')?.hasError('required') "  class='error--serious'>
                     Enter article id
                 </label>
             </p>

@@ -1,7 +1,7 @@
 $border-radious: 0.25rem !default;
-@mixin color($backcolor) {
+@mixin color($backcolor: lightblue) {
   background-color: $backcolor;
 }
-@function calculate($len,$wid){
-@return $len*$wid;
+@function calculate($len, $wid) {
+  @return $len * $wid;
 }

@@ -1,13 +1,14 @@
 /* Add application styles & imports to this file! */
 @use 'variables';
+@import 'code.css';
 .main {
   display: flex;
   flex-wrap: wrap;
 }
 .main div {
-  @include variables.color(lightblue);
+  @include variables.color(var(--main-bg-color));
   display: flex;
-  width: variables.calculate(25,10)*1px ;
+  width: variables.calculate(25, 10) * 1px;
   justify-content: space-between;
   padding: 10px;
 }
@@ -31,4 +32,11 @@
 .error {
   color: red;
   border-color: red;
+  border: 1px solid;
+}
+.error--serious {
+  @extend .error;
+  &:hover {
+    border-width: 3px;
+  }
 }
