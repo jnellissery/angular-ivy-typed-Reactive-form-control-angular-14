@@ -23,7 +23,11 @@ export class ArticleEffects {
       ofType(fromActions.ShowAllAction),
       switchMap(() =>
         this.articleService.getAllArticles().pipe(
-          map((data) => fromActions.ShowAllSuccessAction({ payload: data })),
+          map((data) => {
+            if (data && data.length > 1)
+              return fromActions.ShowAllSuccessAction({ payload: data });
+            else throw Error;
+          }),
           catchError((error) =>
             of(fromActions.ShowAllFailureAction({ payload: error }))
           )
@@ -53,12 +57,16 @@ export class ArticleEffects {
       debounceTime(500),
       map((action) => action.payload),
       switchMap((id) =>
-        this.articleService
-          .getArticleById(id)
-          .pipe(
-            map((res) => fromActions.GetByIdSuccessAction({ payload: res })),
-            catchError((error)=>of(fromActions.GetByIdFailureAction({payload:error})))
+        this.articleService.getArticleById(id).pipe(
+          map((res) => {
+            if (res && res.length > 0)
+              return fromActions.GetByIdSuccessAction({ payload: res });
+            else throw Error;
+          }),
+          catchError((error) =>
+            of(fromActions.GetByIdFailureAction({ payload: error }))
           )
+        )
       )
     )
   );
