@@ -40,3 +40,8 @@
     border-width: 3px;
   }
 }
+@media  (max-width:variables.$mobile-screen)and(orientation:portrait){
+  .main div {
+    @include variables.color(lightgreen);
+}
+}

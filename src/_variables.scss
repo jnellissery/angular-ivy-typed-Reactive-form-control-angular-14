@@ -1,4 +1,5 @@
 $border-radious: 0.25rem !default;
+$mobile-screen: 500px;
 @mixin color($backcolor: lightblue) {
   background-color: $backcolor;
 }

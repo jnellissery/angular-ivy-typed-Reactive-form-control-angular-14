@@ -14,6 +14,10 @@ const _articleReducer = createReducer(
     articles: payload,
     message: 'Success',
   })),
+  on(fromActions.ShowAllFailureAction, (state, { payload }) => ({
+    articles: [],
+    message: 'ShowAll Failure',
+  })),
   on(fromActions.CreateSuccessAction, (state, { payload }) => ({
     articles: [payload],
     message: 'Article Created.',
@@ -25,6 +29,10 @@ const _articleReducer = createReducer(
   on(fromActions.GetByIdSuccessAction, (state, { payload }) => ({
     articles: payload,
     message: 'Success',
+  })),
+  on(fromActions.GetByIdFailureAction, (state, { payload }) => ({
+    articles: [],
+    message: 'Error on get By Id ',
   })),
   on(fromActions.ResetAction, (state) => ({ articles: [], message: '' }))
 );
